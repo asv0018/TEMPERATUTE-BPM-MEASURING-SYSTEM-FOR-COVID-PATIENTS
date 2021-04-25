@@ -97,13 +97,18 @@ void loop(void){
         Serial.println(currentDate);
         Serial.print("Current time: ");
         Serial.println(currentTime);
-        Firebase.setString(fbdo, "REQUESTED_DATA/REQUESTED_TIME", currentTime);
-        Firebase.setString(fbdo, "REQUESTED_DATA/REQUESTED_DATE", currentDate);
-        Firebase.setFloat(fbdo, "REQUESTED_DATA/TEMPERATURE", temperature);
-        Firebase.setFloat(fbdo, "REQUESTED_DATA/HEART_BPM", bpm);
-        Firebase.setFloat(fbdo, "HISTORY/"+currentDate+"/"+currentTime+"/TEMPERATURE", temperature);
-        Firebase.setFloat(fbdo, "HISTORY/"+currentDate+"/"+currentTime+"/HEART_BPM", bpm);
+        json.clear();
+        json.add("REQUESTED_TIME", currentTime);
+        json.add("REQUESTED_DATE", currentDate);
+        json.add("TEMPERATURE", temperature);
+        json.add("HEART_BPM", bpm);
+        Firebase.updateNode(fbdo, "/REQUESTED_DATA", json);
+        json.clear();
+        json.add("HEART_BPM", bpm);
+        json.add("TEMPERATURE", temperature);
+        Firebase.updateNode(fbdo, "HISTORY/"+currentDate+"/"+currentTime, json);
         Firebase.setBool(fbdo, "PARAMETERS/is_data_requested", false);
+        
       }
       
     }
