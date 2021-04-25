@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "538403508369",
+    "firebase_url": "https://temp-pulse-metering-app-default-rtdb.firebaseio.com",
+    "project_id": "temp-pulse-metering-app",
+    "storage_bucket": "temp-pulse-metering-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538403508369:android:11f53bdd3e1651d8802f30",
+        "android_client_info": {
+          "package_name": "com.iotree.iot_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538403508369-vkpuqu2ddm6mjfg2vjf3690p53bp36q9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrpGMiamVa9oty4hflmrDSNxPOg9KitSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538403508369-vkpuqu2ddm6mjfg2vjf3690p53bp36q9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
