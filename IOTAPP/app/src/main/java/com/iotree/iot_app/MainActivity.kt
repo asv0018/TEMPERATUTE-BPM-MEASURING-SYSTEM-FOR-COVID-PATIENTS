@@ -1,7 +1,8 @@
 package com.iotree.iot_app
 
-import android.os.Bundle
-import android.os.CountDownTimer
+import android.content.Context
+import android.media.MediaPlayer
+import android.os.*
 import android.view.Gravity
 import android.view.View
 import android.widget.ProgressBar
@@ -76,7 +77,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
         extendedFloatingActionButton.setOnClickListener{
+            if (Build.VERSION.SDK_INT >= 26) {
+                vibrator.vibrate(VibrationEffect.createOneShot(90, VibrationEffect.DEFAULT_AMPLITUDE))
+            } else {
+                vibrator.vibrate(90)
+            }
             database.child("PARAMETERS").child("is_data_requested").setValue(true)
             data_requested = true
             progresbar.visibility = View.VISIBLE
